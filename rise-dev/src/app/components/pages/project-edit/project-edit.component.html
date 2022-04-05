@@ -1,0 +1,113 @@
+<div class="board">
+    <div class="board-title title">
+        Редактирование проекта
+    </div>
+    <div class="edit" *ngIf="project$ | async as project">
+        <div class="edit-form">
+            <div class="allert-group" *ngIf='isSuccess != null'>
+                <div class="allert">
+                    Изменения успешно сохранены
+                </div>
+            </div>
+            <form #editForm="ngForm" (ngSubmit)="saveData(editForm)">
+                <div class="form__group">
+                    <label class="form__label" for="">Название проекта</label>
+                    <input class="form__input" type="text" name="title" [(ngModel)]="project.title">
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="">Дата создания проекта</label>
+                    <input class="form__input" type="date" name="date" [(ngModel)]="project.date">
+                </div>
+                <div class="form__group">
+                    <lable class="form__label">Описание</lable>
+                    <textarea name="description" id="" cols="30" rows="2" class="form__textarea"
+                        [(ngModel)]="project.description"></textarea>
+                </div>
+                <div class="form__group thumb-img">
+                    <label for="" class="form__label">Обложка</label>
+                    <div class="project-thumb" *ngIf='projectThumb$ | async as projectThumb'>
+                        <img src="{{projectThumb}}" alt="Обложка проекта">
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for=""></label>
+                    <label for="thumb" class="thumb">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M20 40C8.97156 40 0 31.0284 0 20C0 8.97156 8.97156 0 20 0C31.0284 0 40 8.97156 40 20C40 31.0284 31.0284 40 20 40ZM20 2.5C10.35 2.5 2.5 10.35 2.5 20C2.5 29.65 10.35 37.5 20 37.5C29.65 37.5 37.5 29.65 37.5 20C37.5 10.35 29.65 2.5 20 2.5Z"
+                                fill="#C4C4C4" />
+                            <path
+                                d="M28.75 21.25H11.25C10.56 21.25 10 20.69 10 20C10 19.31 10.56 18.75 11.25 18.75H28.75C29.44 18.75 30 19.31 30 20C30 20.69 29.44 21.25 28.75 21.25Z"
+                                fill="#C4C4C4" />
+                            <path
+                                d="M20 30C19.31 30 18.75 29.44 18.75 28.75V11.25C18.75 10.56 19.31 10 20 10C20.69 10 21.25 10.56 21.25 11.25V28.75C21.25 29.44 20.69 30 20 30Z"
+                                fill="#C4C4C4" />
+                        </svg>
+                        <div class="file-info" *ngIf='thumbFileName != null; else takeFile'>
+                            {{thumbFileName}}
+                        </div>
+                    </label>
+                    <input type="file" id="thumb" class="form__input project-file thumb-file" aria-placeholder="select"
+                        (change)="editThumb($event)" placeholder="Выбрать файл">
+                </div>
+                <div class="form__group images">
+                    <label class="form__label" for="">Изображения</label>
+                    <div id="loader">
+                        <progress id='p' value='{{progressBar}}' max='100'></progress>
+                        <output for='p'>{{progressBar}}</output>
+                    </div>
+                    <div class="img-list">
+                        <a *ngFor='let img of imgArr' class="project-img" (click)='deleteImage(img)'>
+                            <img src="{{img.url}}" alt="Изображения проекта">
+                            <div class="image-control">
+                                <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M25 50C11.2148 50 0 38.7852 0 25C0 11.2148 11.2148 0 25 0C38.7852 0 50 11.2148 50 25C50 38.7852 38.7852 50 25 50ZM25 3.57132C13.1844 3.57132 3.57132 13.1844 3.57132 25C3.57132 36.8156 13.1844 46.4287 25 46.4287C36.8156 46.4287 46.4287 36.8156 46.4287 25C46.4287 13.1844 36.8156 3.57132 25 3.57132Z"
+                                        fill="black" />
+                                    <path
+                                        d="M33.9287 35.7143C33.4717 35.7143 33.0147 35.54 32.666 35.191L14.809 17.334C14.1113 16.6363 14.1113 15.5064 14.809 14.809C15.5064 14.1117 16.6367 14.1113 17.334 14.809L35.191 32.666C35.8887 33.3637 35.8887 34.4936 35.191 35.191C34.8423 35.54 34.3857 35.7143 33.9287 35.7143V35.7143Z"
+                                        fill="black" />
+                                    <path
+                                        d="M16.0713 35.7144C15.6143 35.7144 15.1577 35.54 14.809 35.191C14.1113 34.4936 14.1113 33.3634 14.809 32.666L32.666 14.809C33.3637 14.1113 34.4936 14.1113 35.191 14.809C35.8883 15.5064 35.8887 16.6367 35.191 17.334L17.334 35.191C16.9853 35.54 16.5283 35.7144 16.0713 35.7144V35.7144Z"
+                                        fill="black" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="form__group img-edit">
+                        <label for="album" class="thumb">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20 40C8.97156 40 0 31.0284 0 20C0 8.97156 8.97156 0 20 0C31.0284 0 40 8.97156 40 20C40 31.0284 31.0284 40 20 40ZM20 2.5C10.35 2.5 2.5 10.35 2.5 20C2.5 29.65 10.35 37.5 20 37.5C29.65 37.5 37.5 29.65 37.5 20C37.5 10.35 29.65 2.5 20 2.5Z"
+                                    fill="#C4C4C4" />
+                                <path
+                                    d="M28.75 21.25H11.25C10.56 21.25 10 20.69 10 20C10 19.31 10.56 18.75 11.25 18.75H28.75C29.44 18.75 30 19.31 30 20C30 20.69 29.44 21.25 28.75 21.25Z"
+                                    fill="#C4C4C4" />
+                                <path
+                                    d="M20 30C19.31 30 18.75 29.44 18.75 28.75V11.25C18.75 10.56 19.31 10 20 10C20.69 10 21.25 10.56 21.25 11.25V28.75C21.25 29.44 20.69 30 20 30Z"
+                                    fill="#C4C4C4" />
+                            </svg>
+                            <div class="file-info" *ngIf='fileCounter != null; else takeFile'>
+                                {{fileCounter}}
+                            </div>
+                        </label>
+                        <input type="file" id="album" required multiple class="form__input project-file thumb-file"
+                            (change)="editImages($event)">
+                    </div>
+                </div>
+                <div class="form__group buttons">
+                    <app-goback></app-goback>
+                    <button class="form__btn btn" type="submit">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<ng-template #takeFile>
+    <div class="file-info">
+        Выбeрите файл
+    </div>
+</ng-template>

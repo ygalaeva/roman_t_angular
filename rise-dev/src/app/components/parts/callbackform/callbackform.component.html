@@ -1,0 +1,32 @@
+<div class="callback">
+    <div class="callback-title title">
+        Отправить сообщение
+    </div>
+    <div class="callback-allert" *ngIf='allert!=null' [ngClass]='{isErr:isErr}'>
+        {{allert}}
+    </div>
+    <form class="callback-form" #form="ngForm" (ngSubmit)="validateData(form)">
+        <div class="form__group">
+            <input type="text" name="name" minlength="4" class="form__input" placeholder="Имя" ngModel required>
+            <input type="email" name="mail" minlength="4" class="form__input" placeholder="Почта" ngModel required>
+        </div>
+        <div class="form__group">
+            <!-- <input type="text" name="date" minlength="4" class="form__input" placeholder="Дата" ngModel required> -->
+            <input type="number" name="phone" minlength="4" class="form__input phone" placeholder="Телефон" ngModel
+                required>
+        </div>
+        <div class="form__group">
+            <input type="text" name="theme" minlength="4" class="form__input theme" placeholder="Тема" ngModel required>
+        </div>
+        <div class="form__group">
+            <textarea name="description" minlength="4" class="form__textarea" cols="30" rows="3" placeholder="Описание"
+                ngModel required></textarea>
+        </div>
+        <div class="form__group">
+            <button class="form__btn btn" type="submit">
+                Оставить заявку
+            </button>
+        </div>
+    </form>
+
+</div>

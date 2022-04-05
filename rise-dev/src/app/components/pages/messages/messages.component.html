@@ -1,0 +1,37 @@
+<div class="board">
+    <div class="board-title title">
+        Заявки
+    </div>
+    <div class="message-table">
+        <table *ngIf='messages$ != null; else allert'>
+            <tr>
+                <th class="name">Имя</th>
+                <th class="f mail">Почта</th>
+                <th class="f date">Дата</th>
+                <th class="theme">Тема</th>
+                <th class="controls"></th>
+                <th class="controls"></th>
+            </tr>
+            <tr *ngFor="let msg of messages$ | async; index as i">
+                <td>{{msg.name}}</td>
+                <td class="f">{{msg.mail}}</td>
+                <td class="f d">{{msg.date}}</td>
+                <td class="m">{{msg.theme}}</td>
+                <td><a class="message-link" (click)='deleteMessage(msg.id)'>Удалить</a></td>
+                <td><a class="message-link" [routerLink]="['/admin/main-page/messages', msg.id]">Открыть</a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="back">
+        <app-goback></app-goback>
+    </div>
+    <ng-template #load>
+        <div class="loader">
+            <!-- <app-loader-circle></app-loader-circle> -->
+        </div>
+    </ng-template>
+
+    <ng-template #allert class="allert">
+        Сообщений не найдено!
+    </ng-template>
+</div>

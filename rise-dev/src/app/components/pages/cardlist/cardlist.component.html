@@ -1,0 +1,11 @@
+<div class="cards-title title">
+    Мои проекты
+</div>
+
+<div *ngIf='projects$ | async as projects' class="cardlist">
+    <app-card *ngFor="let project of projects; index as i" [Item]="project"></app-card>
+</div>
+
+<ng-template #load class="load">
+    <!-- <app-loader-circle></app-loader-circle> -->
+</ng-template>

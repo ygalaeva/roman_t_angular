@@ -1,0 +1,39 @@
+<div class="admin-pannel">
+    <div class="admin-photo">
+        <img src="../../../../../assets/admin/admin-photo.png" alt="">
+    </div>
+    <div class="admin-info">
+        <div class="admin-text hello">
+            Добро пожаловать
+        </div>
+        <div class="admin-text name">
+            Ансель Адамс
+        </div>
+        <div class="admin-text mail">
+            anseladams@gmail.com
+        </div>
+    </div>
+    <div class="admin-nav">
+        <div (click)='navOpen()' class="nav-open">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50C38.8006 49.9844 49.9844 38.8006 50 25C50 11.1929 38.8071 0 25 0ZM25 48.3333C12.1133 48.3333 1.66667 37.8867 1.66667 25C1.66667 12.1133 12.1133 1.66667 25 1.66667C37.8805 1.68135 48.3186 12.1195 48.3333 25C48.3333 37.8867 37.8867 48.3333 25 48.3333Z"
+                    fill="black" />
+                <path
+                    d="M35 15.8333H15C14.5398 15.8333 14.1667 16.2065 14.1667 16.6667C14.1667 17.1269 14.5398 17.5 15 17.5H35C35.4602 17.5 35.8333 17.1269 35.8333 16.6667C35.8333 16.2065 35.4602 15.8333 35 15.8333Z"
+                    fill="black" />
+                <path
+                    d="M35 32.5H15C14.5398 32.5 14.1667 32.8731 14.1667 33.3333C14.1667 33.7935 14.5398 34.1667 15 34.1667H35C35.4602 34.1667 35.8333 33.7935 35.8333 33.3333C35.8333 32.8731 35.4602 32.5 35 32.5Z"
+                    fill="black" />
+                <path
+                    d="M35 24.1667H15C14.5398 24.1667 14.1667 24.5398 14.1667 25C14.1667 25.4602 14.5398 25.8333 15 25.8333H35C35.4602 25.8333 35.8333 25.4602 35.8333 25C35.8333 24.5398 35.4602 24.1667 35 24.1667Z"
+                    fill="black" />
+            </svg>
+        </div>
+        <nav [ngClass]='{isOpen: isOpen}'>
+            <a (click)='navOpen()' routerLink='/admin/main-page/project'>Добавить проект</a>
+            <a (click)='navOpen()' routerLink="/admin/main-page/project-list">Проекты</a>
+            <a (click)='navOpen()' routerLink="/admin/main-page/messages">Заявки</a>
+        </nav>
+    </div>
+</div>

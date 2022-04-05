@@ -1,0 +1,135 @@
+:host {
+    width: 100%;
+}
+
+.board-title {
+    margin-bottom: 30px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    text-align: left !important;
+}
+
+tr > th {
+    font-size: 18px;
+    font-weight: 400;
+    color: #2d2d2d;
+    &.f {
+        color: #ababab;
+    }
+}
+
+tr > td {
+    border-bottom: 1px solid #ababab !important;
+    padding: 15px 20px 15px 0px !important;
+    font-size: 17px;
+    &.f {
+        color: #ababab;
+    }
+    &:last-child {
+        text-align: right;
+    }
+
+    &.m {
+        line-height: 25.5px;
+    }
+
+    &.d {
+        font-family: "Roboto", sans-serif;
+    }
+}
+.project-table {
+    margin-bottom: 60px;
+    display: flex;
+}
+
+.project-link {
+    font-size: 17px;
+    color: #2d2d2d;
+    font-weight: 400;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    padding-bottom: 3px;
+
+    &:hover {
+        color: #e5cb96;
+    }
+
+    &:hover::after {
+        background-color: #e5cb96;
+    }
+
+    &::after {
+        content: "";
+        background-color: #2d2d2d;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .projects {
+        padding: 0px 10px;
+    }
+    .board {
+        margin: 0px 10px 10px 10px;
+        padding: 0;
+        .board-title {
+            margin-bottom: 20px;
+            padding: 10px 10px 0px 10px;
+        }
+        .projects {
+            .project-table {
+                padding: 0px 10px 10px 0px;
+                overflow-x: auto;
+                margin-bottom: 30px;
+            }
+        }
+    }
+    .rc {
+        width: 50px !important;
+
+    }
+    tr > th {
+        font-size: 15px;
+        width: 150px;
+    }
+    tr > td {
+        font-size: 16px !important;
+    }
+    table {
+        table-layout: fixed;
+    }
+    .project-link {
+        font-size: 15px;
+    }
+    .back {
+        display: flex;
+        padding: 0px 10px 15px 10px;
+        justify-content: flex-end;
+    }
+}
+
+@media (min-width:600px) and (max-width:900px) {
+    .board {
+        margin: 0px 15px;
+        .board-title {
+            font-size: 26px;
+            margin-bottom: 25px;
+        }
+    }
+    table {
+        tr > td {
+            padding: 40px 0px !important;
+        }
+    }
+}

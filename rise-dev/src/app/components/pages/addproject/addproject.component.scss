@@ -1,0 +1,138 @@
+:host {
+    width: 100%;
+}
+
+$accent: #e5cb96;
+
+.file-icon {
+    display: flex;
+}
+
+.board-title {
+    margin-bottom: 20px;
+}
+
+form {
+    .form-group {
+        display: flex;
+        margin-bottom: 15px;
+        &:last-child {
+            margin: 0;
+        }
+        label {
+            width: 20%;
+            font-size: 22px;
+            font-weight: 400;
+            color: #2f2f2f;
+        }
+        input,
+        textarea {
+            font-family: Raleway, sans-serif;
+            outline: none;
+            width: 50%;
+            border-radius: 20px !important;
+            border: 1px solid #c4c4c4;
+            color: #c4c4c4;
+            font-size: 22px;
+            padding: 5px 0px 7px 15px;
+            font-weight: 400;
+
+            &:focus {
+                border: 1px solid $accent;
+                border-radius: 50px;
+                color: #2f2f2f;
+            }
+        }
+        textarea {
+            border-radius: 20px;
+        }
+    }
+}
+
+.thumb-file {
+    display: none;
+}
+.thumb {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    .file-info {
+        margin-left: 1rem;
+        font-size: 22px;
+        color: #c4c4c4;
+    }
+    &:hover {
+        svg {
+            path {
+                fill: #e5cb96;
+            }
+        }
+    }
+}
+.album {
+    display: none;
+}
+
+.buttons {
+    margin-top: 50px;
+    justify-content: flex-end;
+}
+
+@media screen and(max-width:600px) {
+    .form-group {
+        flex-direction: column;
+        input,
+        label,
+        textarea,
+        .file-info {
+            width: unset !important;
+            font-size: 18px !important;
+        }
+    }
+    form {
+        padding: 0px 10px;
+        label {
+            margin-bottom: 5px;
+        }
+    }
+    .board {
+        .board-title {
+            padding: 10px 10px 0px 10px;
+            font-size: 19px;
+        }
+        padding: 0;
+        margin: 0px 10px 10px 10px;
+    }
+    .buttons {
+        margin-top: 25px;
+    }
+}
+@media (min-width: 600px) and(max-width:900px) {
+    .form-group {
+        flex-direction: column;
+        input,
+        label,
+        textarea,
+        .file-info {
+            width: unset !important;
+            font-size: 18px !important;
+        }
+    }
+    form {
+        padding: 0px 10px;
+        label {
+            margin-bottom: 5px;
+        }
+    }
+    .board {
+        margin: 0px 15px;
+        .board-title {
+            padding: 10px 10px 0px 10px;
+            font-size: 26px;
+        }
+        padding: 0;
+    }
+    .buttons {
+        margin-top: 25px;
+    }
+}

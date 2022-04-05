@@ -1,0 +1,10 @@
+<div class="gallery">
+    <div class="wrapper">
+        <ng-image-slider #gallery (imageClick)='isClick()' [infinite]='true' [slideImage]='2'
+            [imageSize]="{width: '670px', height:'600px', space:'10'}" [images]="imgArr" #nav></ng-image-slider>
+        <!-- <div class="gallery-contol">
+            <a (click)='nextImage()'>p</a>
+            <a (click)='prevImage()'>x</a>
+        </div> -->
+    </div>
+</div>

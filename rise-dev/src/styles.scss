@@ -1,0 +1,231 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "Raleway";
+    src: url("./assets/fonts/Raleway-Regular.woff");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: url("./assets/fonts/Raleway-Bold.woff");
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./assets/fonts/Roboto-Regular.woff");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./assets/fonts/Roboto-Bold.woff");
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./assets/fonts/Roboto-Thin.woff");
+    font-weight: 300;
+    font-display: swap;
+}
+
+.container {
+    max-width: 1350px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    color: #2f2f2f;
+}
+
+// Scroll bar
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a1a1a1;
+    opacity: 0.7;
+    width: 100px;
+    height: 500px;
+    border-radius: 6px;
+
+    &:hover {
+        background-color: #808080;
+    }
+}
+
+.btn {
+    background-color: #2f2f2f;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 700;
+    padding: 9px 60px 11px 60px;
+    border-radius: 120px;
+    border: none;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #e5cb96;
+    }
+}
+
+.title {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #2f2f2f;
+}
+
+.link {
+    transition: 0.3s ease-in-out;
+    &:hover {
+        cursor: pointer;
+        color: #e5cb96;
+    }
+}
+
+// Admin page
+.board {
+    background-color: #fff;
+    border: 0.5px solid #cecece;
+    padding: 20px 30px 30px 45px;
+    border-radius: 6px;
+    margin-left: 30px;
+}
+
+.back {
+    text-align: right;
+}
+
+.admin-back {
+    font-size: 22px;
+    color: #2f2f2f;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    padding-bottom: 5px;
+
+    &:hover {
+        color: #e5cb96;
+    }
+
+    &:hover::after {
+        background-color: #e5cb96;
+    }
+
+    &::after {
+        content: "";
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        background-color: #2f2f2f;
+    }
+}
+
+.loader {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+// Swiper - gallery
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.custom-image-main {
+    display: flex;
+    width: 75%;
+    img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+        border-radius: 6px !important;
+    }
+}
+.img-div {
+    box-shadow: none !important;
+}
+
+.custom-image-main {
+    img {
+        max-height: 85% !important;
+        max-width: 98% !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .title {
+        font-size: 21px;
+    }
+    .btn {
+        padding: 10px 15px;
+        font-size: 17px;
+    }
+    .form__input {
+        font-size: 18px !important;
+    }
+    .form__textarea {
+        font-size: 18px !important;
+    }
+    .admin-back {
+        font-size: 19px;
+    }
+    .board {
+        margin: 0px 10px;
+        padding: 0px 10px;
+    }
+    .ng-image-slider {
+        height: 300px !important;
+    }
+    .ng-image-slider-container {
+        .main {
+            height: 250px !important;
+        }
+    }
+    .custom-image-main {
+        img {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+    }
+    .next-icon,
+    .prev-icon {
+        width: 25px !important;
+        height: 25px !important;
+        font-size: 28px !important;
+        line-height: 22px !important;
+    }
+}
+
+@media (min-width:600px) and(max-width:900px) {
+    .title {
+        font-size: 30px;
+    }
+    .board {
+        margin-bottom: 15px !important;
+    }
+}

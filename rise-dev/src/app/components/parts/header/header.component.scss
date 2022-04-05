@@ -1,0 +1,43 @@
+:host {
+    z-index: 10;
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+header {
+    background-color: #fff;
+    .header-image {
+        svg {
+            path {
+                fill: #2d2d2d;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:600px){
+    .header__inner {
+        padding: 10px 10px;
+        .header-image {
+            svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+}
+@media (min-width:600px) and(max-width:900px) {
+    .header__inner {
+        padding: 5px 15px;
+    }
+}
+@media (min-width:900px) and (max-width:1440px) {
+    .header__inner {
+        padding: 7px 25px;
+    }
+}

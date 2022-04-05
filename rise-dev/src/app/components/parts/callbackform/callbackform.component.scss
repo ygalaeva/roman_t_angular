@@ -1,0 +1,107 @@
+$accent: #e5cb96;
+
+.callback {
+    border-radius: 6px;
+    border: 1px solid #c4c4c4;
+    padding: 20px 20px 30px 20px;
+    .callback-title {
+        margin-bottom: 20px;
+    }
+    .callback-allert {
+        color: #46c97a;
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+    .callback-form {
+        display: flex;
+        flex-direction: column;
+        .form__group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            .form__input {
+                border-radius: 120px;
+                border: 1px solid #c4c4c4;
+                padding: 5px 0px 5px 15px;
+                color: #848484;
+                font-size: 22px;
+                font-family: "Raleway", sans-serif;
+                font-weight: 400;
+                margin-right: 22px;
+                width: 100%;
+
+                &:last-child {
+                    margin-right: 0px;
+                }
+
+                &:focus {
+                    border-color: $accent;
+                    outline: none;
+                    color: #2e2e2e;
+                }
+            }
+            .phone {
+                font-family: "Roboto", sans-serif;
+                font-weight: 400;
+            }
+            .form__textarea {
+                border-radius: 20px;
+                border: 1px solid #c4c4c4;
+                color: #848484;
+                font-size: 22px;
+                font-weight: 400;
+                font-family: "Raleway", sans-serif;
+                padding: 5px 0px 5px 15px;
+                width: 100%;
+
+                &:focus {
+                    outline: none;
+                    border-color: $accent;
+                    color: #2e2e2e;
+                }
+            }
+            .theme {
+                width: 100%;
+                margin: 0;
+            }
+
+            &:last-child {
+                margin-top: 15px;
+            }
+        }
+    }
+}
+
+.isErr {
+    color: rgb(235, 62, 62) !important;
+}
+
+@media screen and (max-width: 600px) {
+    .callback {
+        padding: 15px 20px 10px 20px;
+    }
+    .form__group {
+        flex-direction: column;
+        // margin-bottom: 10px !important;
+        margin: 0 !important;
+        input {
+            margin-bottom: 10px !important;
+            &:first-child {
+                // margin-bottom: 0px !important;
+            }
+        }
+    }
+    textarea {
+        margin-bottom: 15px;
+    }
+    .form__input:first-child {
+        margin-right: 0px !important;
+    }
+    .callback-title {
+        margin-bottom: 10px !important;
+    }
+    .callback-allert {
+        font-size: 18px !important;
+    }
+}

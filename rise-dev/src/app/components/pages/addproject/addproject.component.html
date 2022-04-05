@@ -1,0 +1,83 @@
+<div class="board">
+    <div class="board-title title">
+        Добавить проект
+    </div>
+    <form #addForm='ngForm' (ngSubmit)='addProject(addForm)'>
+        <div class="form-group">
+            <label for="" class="form-label">Название</label>
+            <input type="text" name="title" class="form-input" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="" class="form-label">Дата</label>
+            <input type="date" id="start" name="date" min="2018-01-01" max="2021-12-31" ngModel>
+            <!-- <input type="datetime-local" name="" id=""> -->
+        </div>
+        <div class="form-group">
+            <label for="e" class="form-label file">Обложка</label>
+            <input type="file" name="thumb" id="thumb" class="thumb-file" accept=".jpg, .png"
+                (change)='uploadThumb($event)'>
+            <label for="thumb" class="thumb">
+                <div class="file-icon">
+
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                        d="M20 40C8.97156 40 0 31.0284 0 20C0 8.97156 8.97156 0 20 0C31.0284 0 40 8.97156 40 20C40 31.0284 31.0284 40 20 40ZM20 2.5C10.35 2.5 2.5 10.35 2.5 20C2.5 29.65 10.35 37.5 20 37.5C29.65 37.5 37.5 29.65 37.5 20C37.5 10.35 29.65 2.5 20 2.5Z"
+                        fill="#C4C4C4" />
+                        <path
+                        d="M28.75 21.25H11.25C10.56 21.25 10 20.69 10 20C10 19.31 10.56 18.75 11.25 18.75H28.75C29.44 18.75 30 19.31 30 20C30 20.69 29.44 21.25 28.75 21.25Z"
+                        fill="#C4C4C4" />
+                        <path
+                        d="M20 30C19.31 30 18.75 29.44 18.75 28.75V11.25C18.75 10.56 19.31 10 20 10C20.69 10 21.25 10.56 21.25 11.25V28.75C21.25 29.44 20.69 30 20 30Z"
+                        fill="#C4C4C4" />
+                    </svg>
+                </div>
+                    <div class="file-info" *ngIf='projectThumbName != null; else checkFile'>
+                        {{projectThumbName}}
+                </div>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="" class="form-label file">Альбом</label>
+            <label for="album" class="thumb">
+                <div class="file-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M20 40C8.97156 40 0 31.0284 0 20C0 8.97156 8.97156 0 20 0C31.0284 0 40 8.97156 40 20C40 31.0284 31.0284 40 20 40ZM20 2.5C10.35 2.5 2.5 10.35 2.5 20C2.5 29.65 10.35 37.5 20 37.5C29.65 37.5 37.5 29.65 37.5 20C37.5 10.35 29.65 2.5 20 2.5Z"
+                            fill="#C4C4C4" />
+                        <path
+                            d="M28.75 21.25H11.25C10.56 21.25 10 20.69 10 20C10 19.31 10.56 18.75 11.25 18.75H28.75C29.44 18.75 30 19.31 30 20C30 20.69 29.44 21.25 28.75 21.25Z"
+                            fill="#C4C4C4" />
+                        <path
+                            d="M20 30C19.31 30 18.75 29.44 18.75 28.75V11.25C18.75 10.56 19.31 10 20 10C20.69 10 21.25 10.56 21.25 11.25V28.75C21.25 29.44 20.69 30 20 30Z"
+                            fill="#C4C4C4" />
+                    </svg>
+                </div>
+                <div class="file-info" *ngIf='projectFilesCounter != null; else fileSelect'>
+                    {{projectFilesCounter}} файлов выбрано
+                </div>
+            </label>
+            <input type="file" name="album" id="album" class="form-file album" accept=".jpg, .png" multiple
+                (change)='upload($event)'>
+        </div>
+        <div class="form-group">
+            <label for="" class="form-label">Описание</label>
+            <textarea name="description" id="" cols="30" rows="2" class="form-textarea" ngModel></textarea>
+        </div>
+        <div class="form-group buttons">
+            <button type="submit" class="btn form-btn">Сохранить</button>
+        </div>
+        <div>
+            {{projectLoader}}
+        </div>
+    </form>
+</div>
+
+<ng-template #fileSelect>
+    <div class="file-info">Выбeрите файл</div>
+</ng-template>
+
+<ng-template #checkFile>
+    <div class="file-info">
+        Выбeрите файл
+    </div>
+</ng-template>

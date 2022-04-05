@@ -1,0 +1,168 @@
+.admin-pannel {
+    border-radius: 6px;
+    border: 1px solid #cecece;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .admin-photo {
+        padding-top: 20px;
+        display: flex;
+        width: 50%;
+        img {
+            border-radius: 120px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+    .admin-info {
+        margin-bottom: 20px;
+        padding: 0px 20px 0px 20px;
+        .hello {
+            font-size: 22px;
+            color: #2f2f2f;
+            margin: 20px 0px 15px 0px;
+            text-align: center;
+        }
+        .name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .mail {
+            font-size: 22px;
+            color: #e5cb96;
+        }
+    }
+    .admin-nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        nav {
+            display: flex;
+            flex-direction: column;
+            border-bottom-right-radius: 6px;
+            overflow: hidden;
+            .nav-media-title {
+                padding: 0px 10px;
+                display: none;
+            }
+            a {
+                font-size: 22px;
+                font-weight: 400;
+                color: #2f2f2f;
+                text-decoration: none;
+                padding: 8px 20px;
+                position: relative;
+                transition: 0.3s ease-in-out 0.1s;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 10%;
+                    height: 100%;
+                    background-color: #2f2f2f;
+                    opacity: 0;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    transition: 0.3s ease-in-out;
+                }
+
+                &:hover {
+                    &::after {
+                        opacity: 1;
+                        width: 100%;
+                    }
+                    & {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.nav-open {
+    display: none;
+}
+
+@media screen and(max-width:600px) {
+    .admin-pannel {
+        margin: 0px 10px 20px 10px;
+        .admin-photo,
+        .admin-info {
+            display: none;
+        }
+        .admin-nav {
+            nav {
+                display: flex;
+                flex-direction: row;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                border-radius: 6px;
+                .nav-media-title {
+                    display: flex;
+                    padding: 10px 10px;
+                    font-size: 21px;
+                    font-weight: 700;
+                }
+                a {
+                    &:first-child {
+                        text-align: center;
+                    }
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 15px;
+                    width: 33.333%;
+                    height: 37px;
+                    padding: 7px 10px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 600px) and(max-width:900px) {
+    .admin-pannel {
+        margin: 20px 15px 20px 15px;
+        .admin-photo,
+        .admin-info {
+            display: none;
+        }
+        .admin-nav {
+            nav {
+                display: flex;
+                flex-direction: row;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                border-radius: 6px;
+                .nav-media-title {
+                    display: flex;
+                    padding: 10px 10px;
+                    font-size: 21px;
+                    font-weight: 700;
+                }
+                a {
+                    &:first-child {
+                        text-align: center;
+                    }
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 21px;
+                    width: 33.333%;
+                    height: 37px;
+                    padding: 7px 10px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

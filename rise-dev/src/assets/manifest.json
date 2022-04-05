@@ -1,0 +1,31 @@
+{
+    "name": "photo-artist",
+    "short_name": "photo-artist",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "description": "Photo artist web - portfolio",
+    "display": "fullscreen",
+    "start_url":"../index.html",
+    "orientation": "landscape",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "photo-icon.png",
+            "sizes": "64x64",
+            "type":"image/png",
+            "purpose": "any"
+        },
+        {
+            "src":"photo-icon-64.png",
+            "sizes":"128x128",
+            "type": "image/png",
+            "purpose":"any"
+        },
+        {
+            "src":"photo-icon-512.png",
+            "sizes":"512x512",
+            "type": "image/png",
+            "purpose":"any"
+        }
+    ]
+}

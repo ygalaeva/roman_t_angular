@@ -1,0 +1,132 @@
+:host {
+    width: 100%;
+}
+
+.board-title {
+    margin-bottom: 30px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    text-align: left !important;
+}
+
+tr > th {
+    font-size: 18px;
+    font-weight: 400;
+    color: #2d2d2d;
+    &.f {
+        color: #ababab;
+    }
+}
+
+tr > td {
+    border-bottom: 1px solid #ababab !important;
+    padding: 15px 20px 15px 0px !important;
+    font-size: 17px;
+    &.f {
+        color: #ababab;
+    }
+    &:last-child {
+        text-align: right;
+    }
+
+    &.m {
+        line-height: 25.5px;
+    }
+
+    &.d {
+        font-family: "Roboto", sans-serif;
+    }
+}
+
+.message-table {
+    margin-bottom: 60px;
+    display: flex;
+}
+
+.message-link {
+    font-size: 17px;
+    color: #2d2d2d;
+    font-weight: 400;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    padding-bottom: 3px;
+
+    &:hover {
+        color: #e5cb96;
+    }
+
+    &:hover::after {
+        background-color: #e5cb96;
+    }
+
+    &::after {
+        content: "";
+        background-color: #2d2d2d;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .board {
+        padding: 0;
+    }
+    .board-title {
+        padding: 10px 10px 0px 10px;
+    }
+    .message-table {
+        padding: 0px 10px;
+        overflow-x: auto;
+        margin-bottom: 30px;
+        table {
+            table-layout: fixed;
+            tr > td {
+                word-break: break-all;
+            }
+            tr > th {
+                &.name {
+                    width: 150px;
+                }
+                &.mail {
+                    width: 150px;
+                }
+                &.date {
+                    width: 110px;
+                }
+                &.theme {
+                    width: 420px;
+                }
+                &.controls {
+                    width: 90px;
+                }
+            }
+        }
+    }
+    .back {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0px 10px 20px 10px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .board {
+        margin: 0px 15px;
+        .board-title {
+            font-size: 26px;
+        }
+    }
+    tr > td {
+        padding: 30px 20px 15px 0px !important;
+    }
+}

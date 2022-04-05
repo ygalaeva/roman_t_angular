@@ -1,0 +1,23 @@
+<a rel="noreferrer" *ngIf='Item != null; else loader' routerLink="project/{{Item.id}}" class="card">
+    <div class="card__inner">
+        <div class="card-image" *ngIf='projectImgUrl$ | async as projectImgUrl'>
+            <img src="{{projectImgUrl}}" alt="Card item image" width="700" height="600">
+        </div>
+        <div class="card-text">
+            <div class="card-title">
+                {{Item.title}}
+            </div>
+            <div class="card-subtitle">
+                {{Item.date}}
+            </div>
+        </div>
+        <div class="more">Подробнее</div>
+        <div class="shadow"></div>
+    </div>
+</a>
+
+<ng-template #loader>
+    <div class="loader">
+        <!-- <app-loader-circle></app-loader-circle> -->
+    </div>
+</ng-template>

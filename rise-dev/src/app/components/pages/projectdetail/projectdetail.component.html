@@ -1,0 +1,16 @@
+<div class="offer" *ngIf='project != null; else load'>
+    <div class="project container">
+        <h1 class="project-title title">{{project.title}}</h1>
+        <p class="project-subtitle">{{project.date}}</p>
+    </div>
+    <app-gallery [id]="id"></app-gallery>
+    <div class="container">
+        <div class="project-description">
+            {{project.description}}
+        </div>
+    </div>
+
+</div>
+<ng-template class="load" #load>
+    <!-- <app-loader-circle></app-loader-circle> -->
+</ng-template>

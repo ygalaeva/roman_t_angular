@@ -1,0 +1,32 @@
+<div class="board" *ngIf="message$ | async as message">
+    <div class="board-title title">Заявки</div>
+    <div class="message">
+        <div class="message-details">
+            <div class="details__date">
+                {{message.date}}
+            </div>
+            <div class="details__mail">
+                <a class="mail" (click)='clipToBoard()'>{{message.mail}}</a>
+            </div>
+            <div class="details__phone">
+                {{message.phone}}
+            </div>
+        </div>
+        <div class="message-text">
+            <div class="text__name">
+                {{message.name}}
+            </div>
+
+            <div class="text__theme">
+                {{message.theme}}
+            </div>
+            <div class="text__description">
+                {{message.description}}
+            </div>
+        </div>
+    </div>
+
+    <div class="back">
+        <a class="admin-back" (click)="goBack()">Назад</a>
+    </div>
+</div>

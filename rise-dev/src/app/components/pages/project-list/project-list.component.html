@@ -1,0 +1,38 @@
+<div class="board">
+    <div class="board-title title">
+        Проекты
+    </div>
+
+    <div class="projects">
+        <div class="project-table">
+            <table *ngIf='projects$ != null; else loader'>
+                <tr>
+                    <th>Название проекта</th>
+                    <th>Дата</th>
+                    <th class="rc"></th>
+                    <th class=""></th>
+                </tr>
+                <tr *ngFor='let project of projects$ | async; index as i'>
+                    <td>{{project.title}}</td>
+                    <td class="d">{{project.date}}</td>
+                    <td>
+                        <a class="project-link delete" (click)="deleteProject(project.id)">Удалить</a>
+                    </td>
+                    <td>
+                        <a class="project-link"
+                            [routerLink]="['/admin/main-page/project-list', project.id]">Редактировать</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="back">
+        <app-goback></app-goback>
+    </div>
+</div>
+
+<ng-template #loader>
+    <div class="loader">
+        <!-- <app-loader-circle></app-loader-circle> -->
+    </div>
+</ng-template>

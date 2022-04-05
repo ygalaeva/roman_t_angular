@@ -1,0 +1,8 @@
+<a (click)='menu()' [ngClass]="{isMenu: isMenu}" class="menuBtn">Меню</a>
+<nav [ngClass]={isMenu:isMenu} class="navigation" [ngClass]="bgClass">
+    <a (click)='menu()' routerLink="/" href="#main" class="nav__link">Главная</a>
+    <a (click)='menu()' routerLink='/' class="nav__link">Био</a>
+    <a (click)='menu()' routerLink='/' href="#project" class="nav__link">Проекты</a>
+    <a (click)='menu()' routerLink='/' class="nav__link">Контакты</a>
+    <a (click)='menu()' routerLink="/admin" class="nav__link">Добавить</a>
+</nav>

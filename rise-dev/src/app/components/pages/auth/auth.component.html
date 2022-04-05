@@ -1,0 +1,25 @@
+<div class="auth-form">
+    <form #form="ngForm" (ngSubmit)='auth(form)'>
+        <h1 class="form-title title">Вход</h1>
+        <div class="form-group">
+            <div class="msg" *ngIf='errMsg!=null'>
+                {{errMsg}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="form__label">
+                Логин
+            </label>
+            <input type="text" name="username" class="form__input" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="" class="form__label">
+                Пароль
+            </label>
+            <input type="password" name="password" class="form__input" ngModel required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="auth-btn btn">Войти</button>
+        </div>
+    </form>
+</div>
